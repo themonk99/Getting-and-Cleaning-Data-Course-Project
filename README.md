@@ -9,7 +9,7 @@ Files
 CodeBook.md 
 The code book that describes the variables, the data, and any transformations or work that I performed to clean up the data
 
-peer4script.R 
+run_analysis.R 
 Performs the data preparation and then perfoms the 5 steps required for the project:
 Merges the training and the test sets to create one data set.
 Extracts only the measurements on the mean and standard deviation for each measurement.
