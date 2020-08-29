@@ -32,10 +32,10 @@ x_train <- read_table2("UCI HAR Dataset/X_train.txt",
 y_train <- read_table2("UCI HAR Dataset/y_train.txt",
                       col_names = "code")
 
-## Step 2, Merge the training and the test sets to create one data set.
-## Using rbind, I first combined the x data tables, 
-## followed by the y data table, and the the subject train and test data tables.
-## I then used cbind to merge all three of the newly created factors.
+Step 2, Merge the training and the test sets to create one data set.
+Using rbind, I first combined the x data tables, 
+followed by the y data table, and the the subject train and test data tables.
+I then used cbind to merge all three of the newly created factors.
 
 xtt <- rbind(x_test, x_train)
 View(xtt)
@@ -48,20 +48,20 @@ View(test_subject)
 
 merged_table <- cbind(test_subject, xtt, ytt)
 
-## Step 3: Extract only the measurements on the mean and standard deviation 
-##for each measurement.
+Step 3: Extract only the measurements on the mean and standard deviation 
+for each measurement.
 
 subsetmeanstd <- merged_table %>% 
         select(subject, code, contains("mean"), contains("std"))
 View(subsetmeanstd)
 
 
-## Step 4: Use descriptive activity names to name the activities in the data set
+Step 4: Use descriptive activity names to name the activities in the data set
 
 subsetmeanstd$activity <- activities[subsetmeanstd$activity, 2]
 View(subsetmeanstd$activity)
 
-## Step 5: Assigns appropriate/descriptive variable names. 
+Step 5: Assigns appropriate/descriptive variable names. 
 names(subsetmeanstd)[2] = "activity"
 names(subsetmeanstd)<-gsub("Acc", "Accelerometer", names(subsetmeanstd))
 names(subsetmeanstd)<-gsub("Gyro", "Gyroscope", names(subsetmeanstd))
@@ -76,10 +76,10 @@ names(subsetmeanstd)<-gsub("-freq()", "Frequency", names(subsetmeanstd), ignore.
 names(subsetmeanstd)<-gsub("angle", "Angle", names(subsetmeanstd))
 names(subsetmeanstd)<-gsub("gravity", "Gravity", names(subsetmeanstd))
 
-## Step 6: Uses the data created from step 4 (and renamed in Step 5), 
-## to create a second, independent 
-## tidy data set with the average of each variable for each activity and each 
-## subject.
+Step 6: Uses the data created from step 4 (and renamed in Step 5), 
+to create a second, independent 
+tidy data set with the average of each variable for each activity and each 
+subject.
 
 FinalData <- subsetmeanstd %>%
         group_by(subject, activity) %>%
@@ -88,5 +88,5 @@ write.table(FinalData, "FinalData.txt", row.name=FALSE)
 
 str(FinalData)
 FinalData
-write.table(FinalData, file = "FinalData.txt", sep = "\t", row.names = TRUE,
-            col.names = NA)
+write.table(FinalData, file = "FinalData.txt", sep = "\t", row.names = FALSE,
+            col.names = TRUE)
