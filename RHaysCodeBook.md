@@ -1,9 +1,9 @@
-## Step 1, Importing the data, naming columns
-## I created an R Project titled peer 4, and selected to create a Github 
-## repository. I then saved all of the downloaded files into that peer4 R Folder
-## I used the Import Dataset function to get the code for reading and importing
-## the files.
-## I named the columns as part of the import code
+Step 1, Importing the data, naming columns
+I created an R Project titled peer 4, and selected to create a Github 
+repository. I then saved all of the downloaded files into that peer4 R Folder
+I used the Import Dataset function to get the code for reading and importing
+the files.
+I named the columns as part of the import code
 
 library(readr)
 library(dplyr)
