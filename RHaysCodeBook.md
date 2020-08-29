@@ -8,6 +8,7 @@ I named the columns as part of the import code
 library(readr)
 library(dplyr)
 library(tidyr)
+
 features <- read_table2("UCI HAR Dataset/features.txt", 
                         col_names = c("feature_number", "feature"))
 
