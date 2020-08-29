@@ -66,17 +66,29 @@ View(subsetmeanstd$activity)
 
 Step 5: Assigns appropriate/descriptive variable names. 
 names(subsetmeanstd)[2] = "activity"
+
 names(subsetmeanstd)<-gsub("Acc", "Accelerometer", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("Gyro", "Gyroscope", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("BodyBody", "Body", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("Mag", "Magnitude", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("^t", "Time", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("^f", "Frequency", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("tBody", "TimeBody", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("-mean()", "Mean", names(subsetmeanstd), ignore.case = TRUE)
+
 names(subsetmeanstd)<-gsub("-std()", "STD", names(subsetmeanstd), ignore.case = TRUE)
+
 names(subsetmeanstd)<-gsub("-freq()", "Frequency", names(subsetmeanstd), ignore.case = TRUE)
+
 names(subsetmeanstd)<-gsub("angle", "Angle", names(subsetmeanstd))
+
 names(subsetmeanstd)<-gsub("gravity", "Gravity", names(subsetmeanstd))
 
 Step 6: Uses the data created from step 4 (and renamed in Step 5), 
