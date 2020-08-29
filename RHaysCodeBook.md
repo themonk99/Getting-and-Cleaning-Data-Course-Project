@@ -6,7 +6,9 @@ the files.
 I named the columns as part of the import code
 
 library(readr)
+
 library(dplyr)
+
 library(tidyr)
 
 features <- read_table2("UCI HAR Dataset/features.txt", 
